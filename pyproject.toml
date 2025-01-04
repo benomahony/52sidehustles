@@ -1,0 +1,10 @@
+[project]
+name = "52sidehustles"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs-include-markdown-plugin>=7.1.2",
+    "mkdocs-material>=9.5.49",
+]
