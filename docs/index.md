@@ -28,7 +28,8 @@ To establish these mini-incomes I thought I would challenge myself to create a n
 
 ## What is the 52 Side Hustles Challenge?
 
-The 52 Side Hustles Challenge is an experiment in rapid entrepreneurship and learning. Each week, I am going to:
+The 52 Side Hustles
+Challenge is an experiment in rapid entrepreneurship and learning. Each week, I am going to:
 
 1. Choose and start a new side hustle
 2. Document the experience and initial results
@@ -38,3 +39,9 @@ The 52 Side Hustles Challenge is an experiment in rapid entrepreneurship and lea
 Building side hustles is super hard, often one of the major issues I have getting started is analysis paralysis.
 
 By challenging myself to try new side hustle each week there is a forcing function to just launch something and see whether anyone is interested.
+
+## The goals
+
+1. Get to £10,000 / month recurring income from side-hustles
+2. Kick off a new side hustle every week
+3. Blog and document the journey every week
