@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from reportlab.lib import colors
-from reportlab.lib.pagesizes import landscape, A3
-from reportlab.lib.units import cm
+from reportlab.lib.pagesizes import landscape
+from reportlab.lib.units import cm, mm
 from reportlab.pdfgen import canvas
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from calendar import monthrange
@@ -29,8 +29,8 @@ class AlignedWeekendPlannerConfig:
     year: int
 
     # Page Layout
-    page_size: tuple[float, float] = landscape(A3)
-    margin: float = 0.5 * cm
+    page_size: tuple[float, float] = landscape((305 * mm, 428 * mm))
+    margin: float = 0.9 * cm
 
     # Extra space on the left to place the month name
     month_label_width: float = 3 * cm
@@ -58,8 +58,8 @@ class AlignedWeekendPlannerConfig:
     font_name: str = "Helvetica"
     title_size: int = 30
     month_label_size: int = 12
-    day_font_size: int = 8
-    goals_label_size: int = 8
+    day_font_size: int = 10
+    goals_label_size: int = 10
 
     # Default pastel Tailwind-like rainbow:
     # (These are approximations of *-50 shades from Tailwind.)
@@ -134,7 +134,7 @@ class AlignedWeekendPlanner:
         pdf.setFont(self.c.font_name, self.c.title_size)
         pdf.drawCentredString(
             self.width / 2,
-            self.height - 1.0 * cm,
+            self.height - 1.4 * cm,
             f"Sweet Annual Planner {self.c.year}",
         )
 
