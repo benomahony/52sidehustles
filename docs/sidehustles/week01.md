@@ -43,18 +43,20 @@ if __name__ == "__main__":
 
 Voilla! A much tighter iteration cycle out of the box! Similar to my experience in `mkdocs` using `mkdocs serve`
 
+![PDF Dev Workflow](/assets/pdf_dev_workflow.png)
 I quickly got the formatting to where I wanted and uploaded the pdf to gelato.com, selecting the A3 matte poster so it can be written on.
 
 I definitely have some UX feedback for Gelato, Etsy and Shopify - It should be way easier to get started with these tools.
 
 Gelato kept recommending new products rather than the templates I had, also I think templates isn't the best name. Ideally I'd have products for my store but I had to create a template then turn it into a product.
 
-This wasn't that intuitive but I got going and started creating the stores. Etsy was £12 and the onboarding was quite a faff, I guess this is useful to avoid spam stores etc. but i feel there is a nicer middleground.
+This wasn't that intuitive but I got going and started creating the stores. Etsy was £12 and the on boarding was quite a faff, I guess this is useful to avoid spam stores etc. but i feel there is a nicer middleground.
 
 Shopify was free for 3 days then £1 for the first month so relatively cheap.
 
-[Etsy store](https://www.etsy.com/shop/SweetAnnualPlanner?ref=dashboard-header)
-[Shopify store](https://3y80v2-a3.myshopify.com/)
+Check out the [Etsy store](https://www.etsy.com/shop/SweetAnnualPlanner?ref=dashboard-header) here.
+
+And the [Shopify store](https://3y80v2-a3.myshopify.com/) here!
 
 So now I have the complete loop working I have two options:
 
@@ -91,6 +93,15 @@ Obviously 1 is more appealing to the dev but 2 looks like it might be the more u
 
 ## Resources
 
-- [Relevant links]
-- [Tools used]
-- [Additional reading]
+### Relevant links
+
+- [Gelato](www.gelato.com): Print on demand
+- [Shopify](www.Shopify.com): Online storefront
+- [Etsy](www.etsy.com): Online storefront / makers marketplace
+
+### Tools used
+
+- [`reportlab`](https://docs.reportlab.com/reportlab/userguide/ch1_intro/): Create PDFs using python
+- [`watchfiles`](https://watchfiles.helpmanual.io/): Code reloading on save
+
+### Additional reading
