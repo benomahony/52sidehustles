@@ -135,14 +135,14 @@ class AlignedWeekendPlanner:
         pdf.drawCentredString(
             self.width / 2,
             self.height - 1.4 * cm,
-            f"Sweet Annual Planner {self.c.year}",
+            f"Annual Planner {self.c.year}",
         )
 
     def _draw_annual_goals(self, pdf: canvas.Canvas) -> float:
         top_y = self.height - 2.0 * cm
         box_height = 2.0 * cm
 
-        pdf.setStrokeColor(colors.black)
+        pdf.setStrokeColor(colors.CMYKColor(0, 0, 0, 1))
         pdf.rect(
             self.c.margin,
             top_y - box_height,
@@ -163,7 +163,7 @@ class AlignedWeekendPlanner:
         day_col_left_x = self.c.margin + self.c.month_label_width
         day_col_right_x = day_col_left_x + self.max_day_columns * self.c.day_cell_width
 
-        pdf.setStrokeColor(colors.black)
+        pdf.setStrokeColor(colors.CMYKColor(0, 0, 0, 1))
         pdf.line(day_col_left_x, top_y, day_col_right_x, top_y)
         pdf.line(day_col_left_x, bottom_y, day_col_right_x, bottom_y)
 
@@ -211,10 +211,6 @@ class AlignedWeekendPlanner:
             )
 
     def _draw_month_row(self, pdf: canvas.Canvas, month: int, row_bottom_y: float):
-        """
-        Fill entire row with the month's pastel color,
-        then darken it for weekends.
-        """
         days_in_month = monthrange(self.c.year, month)[1]
         start_weekday = datetime.date(self.c.year, month, 1).weekday()
 
@@ -227,12 +223,12 @@ class AlignedWeekendPlanner:
         )
         row_top_y = row_bottom_y + self.c.month_row_height
 
-        # 1) Pastel fill for the entire row
-        if self.c.month_colors and len(self.c.month_colors) >= month:
-            row_color = self.c.month_colors[month - 1]
-        else:
-            row_color = colors.white  # fallback
-
+        # 1) Fill entire row with the month color
+        row_color = (
+            self.c.month_colors[month - 1]
+            if (month - 1 < len(self.c.month_colors))
+            else colors.white
+        )
         pdf.setFillColor(row_color)
         pdf.rect(
             row_left_x,
@@ -242,36 +238,18 @@ class AlignedWeekendPlanner:
             stroke=0,
             fill=1,
         )
-        pdf.setFillColor(colors.black)
 
-        # 2) Outline the row
-        pdf.setStrokeColor(colors.black)
-        # bottom line
-        pdf.line(row_left_x, row_bottom_y, row_right_x, row_bottom_y)
-        # top line
-        pdf.line(row_left_x, row_top_y, row_right_x, row_top_y)
-        # left boundary
-        pdf.line(row_left_x, row_bottom_y, row_left_x, row_top_y)
-        # vertical line after month label
-        day_col_left_x = row_left_x + self.c.month_label_width
-        pdf.line(day_col_left_x, row_bottom_y, day_col_left_x, row_top_y)
-
-        # 3) Month label text
-        pdf.setFont(self.c.font_name, self.c.month_label_size)
-        month_str = datetime.date(self.c.year, month, 1).strftime("%B").upper()
-        label_x = row_left_x + 0.3 * cm
-        label_y = row_bottom_y + self.c.month_row_height - 0.7 * cm
-        pdf.drawString(label_x, label_y, month_str)
-
-        # 4) Days
+        # 2) Fill weekends in a darker shade
         for day_num in range(1, days_in_month + 1):
             col_idx = start_weekday + (day_num - 1)
-            x_day = day_col_left_x + col_idx * self.c.day_cell_width
-
-            # Use a slightly darker version of the row color for weekends
-            if col_idx % 7 in [5, 6]:  # Saturday, Sunday
-                darker_weekend_color = darken_color(row_color, 0.90)
-                pdf.setFillColor(darker_weekend_color)
+            if col_idx % 7 in [5, 6]:  # Sat/Sun
+                weekend_color = darken_color(row_color, 0.90)
+                x_day = (
+                    row_left_x
+                    + self.c.month_label_width
+                    + col_idx * self.c.day_cell_width
+                )
+                pdf.setFillColor(weekend_color)
                 pdf.rect(
                     x_day,
                     row_bottom_y,
@@ -280,21 +258,44 @@ class AlignedWeekendPlanner:
                     stroke=0,
                     fill=1,
                 )
-                pdf.setFillColor(colors.black)
 
-            pdf.setFont(self.c.font_name, self.c.day_font_size)
-            pdf.drawString(
-                x_day + 2,
-                row_bottom_y + self.c.month_row_height - 0.3 * cm,
-                str(day_num),
-            )
+        # 3) Now draw the row outline (top, bottom, left boundary)
+        pdf.setStrokeColor(colors.CMYKColor(0, 0, 0, 1))
+        pdf.setFillColor(colors.CMYKColor(0, 0, 0, 1))
+        pdf.line(row_left_x, row_bottom_y, row_right_x, row_bottom_y)
+        pdf.line(row_left_x, row_top_y, row_right_x, row_top_y)
+        pdf.line(row_left_x, row_bottom_y, row_left_x, row_top_y)
 
-        # 5) Vertical day lines
+        # vertical line after the month label
+        day_col_left_x = row_left_x + self.c.month_label_width
+        pdf.line(day_col_left_x, row_bottom_y, day_col_left_x, row_top_y)
+
+        # 4) Now the vertical day lines
         for col in range(self.max_day_columns + 1):
             x_line = day_col_left_x + col * self.c.day_cell_width
             pdf.line(x_line, row_bottom_y, x_line, row_top_y)
 
-        # 6) Goals area
+        # 5) Finally, draw the month label + day numbers
+        # Month label
+        pdf.setFont(self.c.font_name, self.c.month_label_size)
+        pdf.drawString(
+            row_left_x + 0.3 * cm,
+            row_bottom_y + self.c.month_row_height - 0.7 * cm,
+            datetime.date(self.c.year, month, 1).strftime("%B").upper(),
+        )
+
+        # Day numbers
+        pdf.setFont(self.c.font_name, self.c.day_font_size)
+        for day_num in range(1, days_in_month + 1):
+            col_idx = start_weekday + (day_num - 1)
+            x_day = day_col_left_x + col_idx * self.c.day_cell_width
+            pdf.drawString(
+                x_day + 2,
+                row_bottom_y + self.c.month_row_height - 0.4 * cm,
+                str(day_num),
+            )
+
+        # 6) Goals area last
         x_goals_start = day_col_left_x + self.max_day_columns * self.c.day_cell_width
         self._draw_monthly_goals_area(pdf, x_goals_start, row_bottom_y, row_top_y)
 
@@ -327,7 +328,6 @@ class AlignedWeekendPlanner:
 if __name__ == "__main__":
     config = AlignedWeekendPlannerConfig(
         year=2025,
-        # A pastel rainbow palette (Tailwind-like) for each month:
         month_colors=[
             colors.HexColor("#fef2f2"),  # Jan - red-50
             colors.HexColor("#fff7ed"),  # Feb - orange-50
