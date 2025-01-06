@@ -329,20 +329,20 @@ if __name__ == "__main__":
     config = AlignedWeekendPlannerConfig(
         year=2025,
         month_colors=[
-            colors.HexColor("#fef2f2"),  # Jan - red-50
-            colors.HexColor("#fff7ed"),  # Feb - orange-50
-            colors.HexColor("#fffbeb"),  # Mar - amber-50
-            colors.HexColor("#fefce8"),  # Apr - yellow-50
-            colors.HexColor("#f7fee7"),  # May - lime-50
-            colors.HexColor("#f0fdf4"),  # Jun - green-50
-            colors.HexColor("#f0fdfa"),  # Jul - teal-50
-            colors.HexColor("#f0f9ff"),  # Aug - sky-50
-            colors.HexColor("#eff6ff"),  # Sep - blue-50
-            colors.HexColor("#eef2ff"),  # Oct - indigo-50
-            colors.HexColor("#f5f3ff"),  # Nov - violet-50
-            colors.HexColor("#faf5ff"),  # Dec - purple-50
+            colors.HexColor("#fef2f2"),  # red-50
+            colors.HexColor("#fee2e2"),  # red-100
+            colors.HexColor("#fecaca"),  # red-200
+            colors.HexColor("#fef2f2"),  # red-50
+            colors.HexColor("#fee2e2"),  # red-100
+            colors.HexColor("#fecaca"),  # red-200
+            colors.HexColor("#fef2f2"),  # red-50
+            colors.HexColor("#fee2e2"),  # red-100
+            colors.HexColor("#fecaca"),  # red-200
+            colors.HexColor("#fef2f2"),  # red-50
+            colors.HexColor("#fee2e2"),  # red-100
+            colors.HexColor("#fecaca"),  # red-200
         ],
         goals_labels=["Health", "Wealth", "Happiness"],
     )
     planner = AlignedWeekendPlanner(config)
-    planner.create_planner("Sweet_Annual_Planner_2025.pdf")
+    planner.create_planner("./sidehustles/01_calendar_goals/output/test.pdf")
