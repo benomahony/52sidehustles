@@ -5,6 +5,7 @@ requires-python = ">=3.13"
 members = [
     "52sidehustles",
     "hustle-01-calendar-goals",
+    "hustle-02-cv-editing",
     "hustle-02-property-viewing-meetings",
 ]
 
@@ -408,9 +409,14 @@ version = "0.1.0"
 source = { virtual = "sidehustles/hustle_01_calendar_goals" }
 
 [[package]]
+name = "hustle-02-cv-editing"
+version = "0.1.0"
+source = { virtual = "sidehustles/hustle_02_cv_editing" }
+
+[[package]]
 name = "hustle-02-property-viewing-meetings"
 version = "0.1.0"
-source = { virtual = "sidehustles/hustle_02_property_viewing_meetings" }
+source = { virtual = "sidehustles/hustle_03_property_viewing_meetings" }
 dependencies = [
     { name = "fastapi" },
     { name = "google-api-python-client" },
