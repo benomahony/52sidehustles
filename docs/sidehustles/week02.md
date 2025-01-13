@@ -1,4 +1,4 @@
-# Week 02: [CV Editing]
+# Week 02: CV Editing
 
 ## Overview
 
@@ -29,6 +29,8 @@ Luckily Fiverr and Etsy have several messages reinforcing not to share personal 
 
 So here is the resulting gig: [I will create, review and edit your software engineering CV](https://www.fiverr.com/benomahony007/create-review-and-edit-your-software-engineering-cv)
 
+To make this a bit more easy I also looked into [LaTeX CVs](https://github.com/posquit0/Awesome-CV)
+
 ## Results
 
 - Revenue: £X
@@ -49,5 +51,7 @@ So here is the resulting gig: [I will create, review and edit your software engi
 ### [Relevant links]
 
 ### [Tools used]
+
+- LaTeX
 
 ### [Additional reading]
