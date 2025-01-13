@@ -5,8 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "mkdocs-include-markdown-plugin>=7.1.2",
-    "mkdocs-material>=9.5.49",
-    "reportlab>=4.2.5",
-    "watchfiles>=1.0.3",
+  "mkdocs-include-markdown-plugin>=7.1.2",
+  "mkdocs-material>=9.5.49",
+  "ollama>=0.4.5",
+  "pydantic-ai>=0.0.18",
+  "reportlab>=4.2.5",
+  "watchfiles>=1.0.3",
 ]
+
+[project.optional-dependencies]
+test = ["coverage>=7.6.10", "pytest>=8.3.4"]
+
+[tool.uv.workspace]
+members = ["sidehustles/*"]

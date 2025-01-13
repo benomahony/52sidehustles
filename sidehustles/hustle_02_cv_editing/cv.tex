@@ -1,0 +1,105 @@
+%====================
+% cv.tex
+%====================
+\documentclass[10pt,a4paper]{altacv}
+
+% Adjust page margins
+\geometry{
+  left=1.0cm, right=1.0cm,
+  marginparwidth=3.6cm, marginparsep=0.8cm,
+  top=1.0cm, bottom=1.0cm
+}
+
+% Set a custom font if you're using XeLaTeX or LuaLaTeX
+%\setmainfont{Montserrat}
+
+% Define a new color scheme
+\definecolor{MyAccent}{HTML}{2C3E50}  % a nice dark blue-gray
+\colorlet{accent}{MyAccent}
+\colorlet{heading}{MyAccent}
+\colorlet{headingrule}{MyAccent}
+\colorlet{emphasis}{black}
+\colorlet{body}{white}  % clean white background
+
+% Make headings bigger / bolder if desired
+\renewcommand{\namefont}{\Huge\bfseries}
+\renewcommand{\taglinefont}{\large\bfseries}
+
+% Personal Info
+\name{John Doe}{} % Put full name on a single line
+\tagline{Data Scientist · Mathematician · Problem Solver}
+\photo{2.8cm}{example-profile}
+\personalinfo{
+  \email{john.doe@example.com}\\
+  \phone{+1 (555) 123-4567}\\
+  \location{City, Country}\\
+  \linkedin{linkedin.com/in/johndoe}\\
+  \github{github.com/johndoe}
+}
+
+\begin{document}
+\makecvheader
+
+\cvsection{Summary}
+\begin{quote}
+Dedicated Data Scientist with a strong background in mathematics and a passion
+for solving complex problems. Proficient in Python, R, and SQL, with a proven
+track record of delivering actionable insights and results.
+\end{quote}
+
+\cvsection{Experience}
+\cvevent{Lead Data Scientist}{TechCorp Solutions}{Jan 2022 -- Present}{San Francisco, CA}
+\begin{itemize}
+  \item Developed pipeline solutions with Python/SQL, reducing processing time by 40\%.
+  \item Led a 5-person data science team, achieving 85\% accuracy in churn prediction.
+  \item Collaborated cross-functionally to improve recommendations, boosting engagement by 20\%.
+\end{itemize}
+
+\divider
+
+\cvevent{Data Scientist}{FinEdge Analytics}{Jun 2019 -- Dec 2021}{New York, NY}
+\begin{itemize}
+  \item Built time-series models (MAPE 15\%) for financial product demand forecasting.
+  \item Automated anomaly detection, saving \$100K/quarter through early fraud detection.
+  \item Streamlined data-driven decision-making with stakeholders.
+\end{itemize}
+
+\cvsection{Education}
+\cvevent{PhD in Mathematics}{University of Example}{2014 -- 2019}{}
+\begin{itemize}
+  \item Dissertation on Topological Data Analysis for time-series clustering.
+  \item Published 3 peer-reviewed articles in leading journals.
+\end{itemize}
+
+\divider
+
+\cvevent{BSc in Math \& CS}{State University}{2010 -- 2014}{}
+\begin{itemize}
+  \item Graduated with highest honors (GPA 3.9/4.0).
+  \item Research assistant in ML; built SVM-based text classification approach.
+\end{itemize}
+
+\cvsection{Skills}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Languages:} Python, R, SQL, C++
+  \item \textbf{Tools:} scikit-learn, TensorFlow, PyTorch, Docker, Git
+  \item \textbf{Analytics:} ML, Stats, Time-Series, Forecasting
+  \item \textbf{Soft Skills:} Leadership, Agile, Communication
+\end{itemize}
+
+\cvsection{Projects}
+\cvevent{Open Source Contributor}{\textit{PyData}}{Ongoing}{}
+\begin{itemize}
+  \item Submitted pull requests improving data manipulation performance.
+  \item Created tutorials on data wrangling and visualization best practices.
+\end{itemize}
+
+\divider
+
+\cvevent{Mathematical Modeling}{\textit{Private Consulting}}{Jan 2021 -- Present}{}
+\begin{itemize}
+  \item Provided advanced analytics consultation to small businesses on demand forecasting.
+  \item Built Monte Carlo simulations to evaluate risk in pricing strategies.
+\end{itemize}
+
+\end{document}

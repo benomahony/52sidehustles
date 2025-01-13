@@ -1,0 +1,4 @@
+[project]
+name = "hustle_01_calendar_goals"
+version = "0.1.0"
+requires-python = ">=3.12"

@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
 ```
 
-Voilla! A much tighter iteration cycle out of the box! Similar to my experience in `mkdocs` using `mkdocs serve`
+Voila! A much tighter iteration cycle out of the box! Similar to my experience in `mkdocs` using `mkdocs serve`
 
 ![PDF Dev Workflow](/assets/pdf_dev_workflow.png)
 I quickly got the formatting to where I wanted and uploaded the pdf to gelato.com, selecting the A3 matte poster so it can be written on.
@@ -65,29 +65,18 @@ So now I have the complete loop working I have two options:
 
 Obviously 1 is more appealing to the dev but 2 looks like it might be the more useful for generating cash. What do you think I should do?
 
-## Week's Progress
-
-- Day 1:
-- Day 2:
-- Day 3:
-- [...]
-
 ## Results
 
-- Revenue: $X
-- Expenses: $X
-- Time Invested: X hours
+- Revenue: £0
+- Expenses: £12
+- Time Invested: 4 hours
 - Key Learnings:
   - Learning 1
   - Learning 2
 
-## Evaluation
+## Current status
 
-[Complete evaluation using framework]
-
-## Decision
-
-- [ ] Continue
+- [x] Continue
 - [ ] Optimize
 - [ ] Deprecate
 
