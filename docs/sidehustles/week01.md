@@ -84,9 +84,9 @@ Obviously 1 is more appealing to the dev but 2 looks like it might be the more u
 
 ### Relevant links
 
-- [Gelato](www.gelato.com): Print on demand
-- [Shopify](www.Shopify.com): Online storefront
-- [Etsy](www.etsy.com): Online storefront / makers marketplace
+- [Gelato](https://www.gelato.com): Print on demand
+- [Shopify](https://www.Shopify.com): Online storefront
+- [Etsy](https://www.etsy.com): Online storefront / makers marketplace
 
 ### Tools used
 
